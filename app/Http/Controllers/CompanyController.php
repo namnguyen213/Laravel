@@ -14,11 +14,10 @@ class CompanyController extends Controller
 {
     public function getCompanies(Request $request) {
 
-        $per_page = $request->input('per_page');
-
+        $per_page = $request->get('per_page');
+        $name = $request->get('name');
         $obj = new Company();
-        $companies = $obj->paginate($per_page);
-
+        $companies = $obj->where('company_name', 'like', "%$name%")->paginate($per_page);
         return view('companies', ['companies' => $companies]);
     }
 }

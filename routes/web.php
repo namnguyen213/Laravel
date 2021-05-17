@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/companies', [CompanyController::class, 'getCompanies'])
-    ->middleware('per_page');
+    ->middleware('per_page','name');
 Route::get('/search', [\App\Http\Controllers\SeachController::class, 'getSeach'])
     ->middleware('per_page','name');
 

@@ -29,7 +29,10 @@
     </nav>
 
 </div>
-
+<form method="get" action="http://127.0.0.1:8000/search">
+    <input type="text" name="name" placeholder="Search...">
+    <input type="submit" value="Tìm kiếm">
+</form>
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Trainers</h1>
 
