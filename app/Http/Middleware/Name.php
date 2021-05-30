@@ -16,7 +16,15 @@ class Name
      */
     public function handle(Request $request, Closure $next)
     {
-        $name = $request->input('name');
+
+        $per_page = $request->input('per_page');
+        //is null
+        if (empty($per_page)) {
+            $per_page = '';
+        }
+
+        $request->merge(['per_page' => $per_page]);
+
         return $next($request);
     }
 }

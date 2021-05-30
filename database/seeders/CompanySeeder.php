@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
 class CompanySeeder extends Seeder
 {
     /**
@@ -16,13 +15,15 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 1000000; $i++) {
+        $collection = collect([1, 2, 3]);
+        for ($i=0; $i < 500; $i++) { 
             DB::table('companies')->insert([
-                'company_name' => Str::random(10),
-                'company_web' => Str::random(5) . '.com',
-                'company_address' => Str::random(55),
-                'company_code' => Str::random(55),
-                'company_phone' => random_int(900000000, 999999999)
+                'company_name' => Str::random(3),
+                'company_web' => Str::random(3),
+                'company_address' => Str::random(3),
+                'company_code' => Str::random(3),
+                'company_phone' => "012345679",
+                'category_id' => $collection->random(),
             ]);
         }
     }

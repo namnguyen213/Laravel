@@ -14,10 +14,10 @@ class TrainerController extends Controller
 {
     public function getTrainers(Request $request) {
 
-        $trainer_logic = $request->input('trainer_logic');
+        $per_page = $request->input('trainer_logic');
 
         $obj = new Trainer();
-        $trainers = $obj->paginate($trainer_logic);
+        $trainers = $obj->paginate($per_page);
 
         return view('trainers', ['trainers' => $trainers]);
     }

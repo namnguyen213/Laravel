@@ -21,18 +21,16 @@ class PerPage
         //is null
         if (empty($per_page)) {
             $per_page = 10;
-        }
+        }       
+        //is string
         if (!is_numeric($per_page)) {
             return redirect('error');
         }
-
-        $nhap =[10,20,30,50];
-        if (!in_array($per_page,$nhap)){
-            $per_page = 10;
-        }
-
+        $nhap = [10,20,30,50];
+         if(!in_array($per_page,$nhap)){
+            $per_page=10;
+         } 
         $request->merge([ 'per_page' => $per_page]);
-
         return $next($request);
     }
 }

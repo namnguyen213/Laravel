@@ -29,13 +29,13 @@
     </nav>
 
 </div>
-<form method="get" action="http://127.0.0.1:8000/search">
-    <input type="text" name="name" placeholder="Search...">
-    <input type="submit" value="Tìm kiếm">
-</form>
+
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Companies</h1>
-
+    <form method="get" action="http://127.0.0.1:8000/search">
+        <input type="text" name="name" placeholder="Search...">
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
 <div class="container">
@@ -50,18 +50,18 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($companies as $company)
+            @foreach($search as $i)
                 <tr>
-                    <th scope="row">{!! $company->company_id !!}</th>
-                    <td>{!! $company->company_name !!}</td>
-                    <td>{!! $company->company_web !!}</td>
-                    <td>{!! $company->company_phone !!}</td>
+                    <th scope="row">{!! $i->company_id !!}</th>
+                    <td>{!! $i->company_name !!}</td>
+                    <td>{!! $i->company_web !!}</td>
+                    <td>{!! $i->company_phone !!}</td>
                 </tr>
             @endforeach
 
             </tbody>
         </table>
-        {!! $companies->render() !!}
+        {!! $search->render() !!}
     </div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
